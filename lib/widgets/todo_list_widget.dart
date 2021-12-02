@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './category_widget.dart';
+import './todo_widget.dart';
 
-class CategoryListWidget extends StatelessWidget {
-  const CategoryListWidget({Key? key}) : super(key: key);
+class TodoListWidget extends StatelessWidget {
+  const TodoListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,17 +10,18 @@ class CategoryListWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
         Text(
-          'CATEGORIES',
+          "TODAY'S TASKS",
           style: TextStyle(
             fontSize: 16,
             color: Colors.black26,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
-          height: 15,
-        ),
-        CategoryWidget(),
+        TodoWidget(),
+        TodoWidget(),
+        TodoWidget(),
+        TodoWidget(),
+        TodoWidget(),
       ],
     );
   }

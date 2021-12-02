@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import './widgets/category_list_widget.dart';
+import './widgets/todo_list_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -86,6 +87,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             CategoryListWidget(),
+            SizedBox(
+              height: 30,
+            ),
+            TodoListWidget(),
           ],
         ),
       ),
