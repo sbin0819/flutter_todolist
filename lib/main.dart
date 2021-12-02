@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './widgets/category_widget.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -71,15 +73,33 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              color: Colors.amber[100],
+              height: 80.0,
+              child: const Text(
+                'Hello Subin!',
+                style: TextStyle(
+                  fontSize: 24,
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'CATEGORIES',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.black26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                //? 카테고리가 있으면 생성 없으면 오늘 할 일에 대해서 보여줌
+                CategoryWidget()
+              ],
+            )
           ],
         ),
       ),
