@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import './widgets/category_widget.dart';
+import './widgets/category_list_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -85,21 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'CATEGORIES',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.black26,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                //? 카테고리가 있으면 생성 없으면 오늘 할 일에 대해서 보여줌
-                CategoryWidget()
-              ],
-            )
+            CategoryListWidget(),
           ],
         ),
       ),
