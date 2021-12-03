@@ -12,7 +12,13 @@ class TodoListWidget extends StatelessWidget {
       'Learn Flutter',
       'Call Parents',
       'Eat Healthy Food',
-      "Sleep Tight"
+      "Sleep Tight",
+      "Buy Milk",
+      'Clean The Room',
+      'Learn Flutter',
+      'Call Parents',
+      'Eat Healthy Food',
+      "Sleep Tight",
     ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,7 +31,26 @@ class TodoListWidget extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        getTodoWidget(todoList),
+        SizedBox(height: 10),
+        // getTodoWidget(todoList),
+        SizedBox(
+          height: 400.0,
+          child: ListView(
+            physics: const ClampingScrollPhysics(),
+            shrinkWrap: true,
+            children: [
+              TodoWidget(todo: 'hi'),
+              TodoWidget(todo: 'hi'),
+              TodoWidget(todo: 'hi'),
+              TodoWidget(todo: 'hi'),
+              TodoWidget(todo: 'hi'),
+              TodoWidget(todo: 'hi'),
+              TodoWidget(todo: 'hi'),
+              TodoWidget(todo: 'hi'),
+              TodoWidget(todo: 'hi'),
+            ],
+          ),
+        ),
       ],
     );
   }
@@ -34,13 +59,4 @@ class TodoListWidget extends StatelessWidget {
 Widget getTodoWidget(List<String> strings) {
   return Column(
       children: strings.map((todo) => TodoWidget(todo: todo)).toList());
-}
-
-Widget getListView(BuildContext context, List<String> todoList) {
-  return ListView.builder(
-    itemCount: todoList.length,
-    itemBuilder: (BuildContext context, int index) {
-      return TodoWidget(todo: todoList[index]);
-    },
-  );
 }
