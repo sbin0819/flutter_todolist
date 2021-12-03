@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TodoWidget extends StatelessWidget {
-  const TodoWidget({Key? key}) : super(key: key);
-
+  TodoWidget({Key? key, required this.todo}) : super(key: key);
+  String todo;
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.symmetric(vertical: 2),
       width: double.infinity,
       height: 55.0,
       decoration: BoxDecoration(
@@ -32,7 +33,7 @@ class TodoWidget extends StatelessWidget {
             color: Colors.pink[300],
           ),
           SizedBox(width: 15),
-          Text('Buy Milk'), // ! todo title or content
+          Text(todo), // ! todo title or content
         ],
       ),
     );
