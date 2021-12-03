@@ -44,6 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+        elevation: 0.0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -52,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(
                 Icons.menu,
               ),
+              color: Colors.black45,
             ),
             Row(
               children: [
@@ -60,12 +64,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   icon: const Icon(
                     Icons.search,
                   ),
+                  color: Colors.black45,
                 ),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
                     Icons.notifications_none,
                   ),
+                  color: Colors.black45,
                 ),
               ],
             )
@@ -75,14 +81,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              color: Colors.amber[100],
-              height: 80.0,
-              child: const Text(
-                'Hello Subin!',
+          children: const [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 22,
+              ),
+              child: Text(
+                "Hello, SUBIN!",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
