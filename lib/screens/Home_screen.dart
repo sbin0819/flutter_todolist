@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: const [
+          children: [
             Padding(
               padding: EdgeInsets.symmetric(
                 vertical: 22,
@@ -78,11 +78,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            CategoryListWidget(),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 8.0),
+              child: CategoryListWidget(),
+            ),
             SizedBox(
               height: 30,
             ),
-            TodoListWidget(),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 8.0),
+              child: TodoListWidget(),
+            ),
           ],
         ),
       ),

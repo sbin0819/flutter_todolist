@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SubScreen extends StatelessWidget {
-  static const routeName = '/home';
+  static const routeName = '/sub';
   const SubScreen({Key? key}) : super(key: key);
 
   @override
