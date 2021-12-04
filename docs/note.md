@@ -8,10 +8,19 @@
 Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 
 - 내일 할 일
-  [x] route 동작을 숙지해야함
-  [] spec 작성을 조금씩 해야 함
-  [] theme 을 조금씩 적용해야 함
-  [] todo model을 만들어야 만들어야 함
+  [] spec
+    [] 투두리스트 작성 가능
+    [] 투두리스트 카테고리 등록가능
+    [] 수정, 삭제 가능
+  [] 유저
+  [] screen
+    [x] route 등록
+    [] 페이지 구성
+  [] 스타일
+    [] theme 활용
+  [] 데이터
+    [] todo model
+    [] category model
   [] list view 적용
     [x] 기본 적용
     [] ListView.build 적용
