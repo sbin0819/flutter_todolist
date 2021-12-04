@@ -1,6 +1,4 @@
 # todolist
 
-A new Flutter project.
-
-## Getting Started
+- 투두리스트 앱
 
