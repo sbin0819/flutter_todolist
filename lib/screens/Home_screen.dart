@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import '../widgets/category_list_widget.dart';
 import '../widgets/todo_list_widget.dart';
+import './write_todo_screen.dart';
 
-import './sub_screen.dart';
-
+/**
+  1. Category 데어터
+  2. Today Todo 데이터
+ */
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
   const HomeScreen({Key? key, required this.title}) : super(key: key);
@@ -21,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // setState(() {
     //   _counter++;
     // });
-    Navigator.of(context).pushNamed(SubScreen.routeName);
+    Navigator.of(context).pushNamed(WriteTodoScreen.routeName);
   }
 
   @override

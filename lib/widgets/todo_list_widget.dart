@@ -23,7 +23,7 @@ class TodoListWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           "TODAY'S TASKS",
           style: TextStyle(
             fontSize: 16,
@@ -31,26 +31,19 @@ class TodoListWidget extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 10),
-        // getTodoWidget(todoList),
-        SizedBox(
-          height: 400.0,
-          child: ListView(
-            physics: const ClampingScrollPhysics(),
-            shrinkWrap: true,
-            children: [
-              TodoWidget(todo: 'hi'),
-              TodoWidget(todo: 'hi'),
-              TodoWidget(todo: 'hi'),
-              TodoWidget(todo: 'hi'),
-              TodoWidget(todo: 'hi'),
-              TodoWidget(todo: 'hi'),
-              TodoWidget(todo: 'hi'),
-              TodoWidget(todo: 'hi'),
-              TodoWidget(todo: 'hi'),
-            ],
-          ),
-        ),
+        const SizedBox(height: 10),
+        // ? 내부에서 스크롤이 돌게 하기 위해서 SizedBox 에서 크기를 고정해줌
+        todoList.length < 0
+            ? Text('작성 된 투두리스트가 없습니다.')
+            : SizedBox(
+                height: 400.0,
+                child: ListView.builder(
+                  itemCount: todoList.length,
+                  itemBuilder: (BuildContext context, int idx) {
+                    return TodoWidget(todo: todoList[idx]);
+                  },
+                ),
+              ),
       ],
     );
   }
