@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
+// category 이름과 id 전달 받고 api를 호출함
+
 class CategoryScreen extends StatelessWidget {
   static const routeName = '/category';
 
-  CategoryScreen({Key? key, this.category}) : super(key: key);
-  var category;
+  final String title;
+  final String id;
+
+  const CategoryScreen({
+    Key? key,
+    required this.title,
+    required this.id,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('CATEGORY')),
-      body: Text('SUB SCREEN'),
+      body: Text(title),
     );
   }
 }

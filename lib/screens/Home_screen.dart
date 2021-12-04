@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/category_list_widget.dart';
 import '../widgets/todo_list_widget.dart';
-
-import './sub_screen.dart';
+import './write_todo_screen.dart';
 
 /**
   1. Category 데어터
@@ -25,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // setState(() {
     //   _counter++;
     // });
-    Navigator.of(context).pushNamed(SubScreen.routeName);
+    Navigator.of(context).pushNamed(WriteTodoScreen.routeName);
   }
 
   @override
