@@ -4,6 +4,10 @@ import '../widgets/todo_list_widget.dart';
 
 import './sub_screen.dart';
 
+/**
+  1. Category 데어터
+  2. Today Todo 데이터
+ */
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
   const HomeScreen({Key? key, required this.title}) : super(key: key);
