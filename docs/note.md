@@ -16,7 +16,16 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 [Pass arguments to a named route](https://flutter-ko.dev/docs/cookbook/navigation/navigate-with-arguments)
 [Named Routing을 이용한 Navigation](https://seizemymoment.tistory.com/51)
 
-- 내일 할 일
+
+## 21-12-05
+- Theme 적용
+- TextFormField 적용
+- font 적용
+* firebase 연결을 준비해야 할 거 같음
+
+[form](https://docs.flutter.dev/cookbook/forms/validation)
+
+- 할 일
   [] spec
     [] 투두리스트 작성 가능
     [] 투두리스트 카테고리 등록가능
