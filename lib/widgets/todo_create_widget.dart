@@ -38,15 +38,22 @@ class _TodoCreateWidgetState extends State<TodoCreateWidget> {
       children: [
         Form(
           key: _formKey,
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: TextFormField(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 22.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 80.0),
+                ),
+                TextFormField(
                   controller: _txtController,
-                  autofocus: true,
+                  autofocus: false,
+                  style: TextStyle(
+                    fontSize: 26,
+                  ),
                   decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
+                    border: InputBorder.none,
                     hintText: '할 일을 입력해주세요.',
                   ),
                   validator: (value) {
@@ -56,28 +63,96 @@ class _TodoCreateWidgetState extends State<TodoCreateWidget> {
                     return null;
                   },
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          content: Text(_txtController.text),
-                        );
-                      },
-                    );
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //   const SnackBar(content: Text('Processing Data')),
-                    // );
-                  }
-                },
-                child: const Text('Submit'),
-              ),
-            ],
+                SizedBox(height: 30),
+                selectDateWidget(),
+                SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.create_new_folder_outlined,
+                      size: 30,
+                    ),
+                    SizedBox(width: 35),
+                    Icon(
+                      Icons.flag_outlined,
+                      size: 30,
+                    ),
+                    SizedBox(width: 35),
+                    Icon(
+                      Icons.alarm_add,
+                      size: 30,
+                    )
+                  ],
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 50.0),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      Navigator.of(context).pop();
+                      // showDialog(
+                      //   context: context,
+                      //   builder: (context) {
+                      //     return AlertDialog(
+                      //       content: Text(_txtController.text),
+                      //     );
+                      //   },
+                      // );
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   const SnackBar(content: Text('Processing Data')),
+                      // );
+                    }
+                  },
+                  child: const Text('Submit'),
+                ),
+              ],
+            ),
           ),
         ),
+      ],
+    );
+  }
+}
+
+class selectDateWidget extends StatelessWidget {
+  const selectDateWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        GestureDetector(
+          onTap: () {
+            print('tap');
+          },
+          child: Container(
+            height: 50.0,
+            width: 122.0,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black12,
+                width: 1.0,
+                style: BorderStyle.solid,
+              ),
+              color: Colors.white,
+              borderRadius: const BorderRadius.all(
+                Radius.circular(16.0),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.calendar_today_outlined),
+                SizedBox(width: 10),
+                Text('Today')
+              ],
+            ),
+          ),
+        )
       ],
     );
   }
