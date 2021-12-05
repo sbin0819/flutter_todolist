@@ -3,6 +3,8 @@ import './screens/home_screen.dart';
 import './screens/category_screen.dart';
 import './screens/write_todo_screen.dart';
 
+import './helpers/theme.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,9 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'TODOLIST',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: getThemeData(),
       initialRoute: HomeScreen.routeName,
       // routes: {
       //   HomeScreen.routeName: (ctx) => const HomeScreen(title: 'TODOLIST'),
