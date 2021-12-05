@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 ThemeData getThemeData() {
   return ThemeData(
+    fontFamily: 'GmarketSans',
     colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue).copyWith(
       secondary: Colors.blueAccent,
     ),

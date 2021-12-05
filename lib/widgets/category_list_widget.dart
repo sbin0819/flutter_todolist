@@ -31,10 +31,6 @@ class CategoryListWidget extends StatelessWidget {
     },
   ];
   @override
-  // CategoryWidget(id: 'id', title: 'abcd', completed: 10, total: 20),
-  //  physics: const ClampingScrollPhysics(),
-  //         shrinkWrap: true,
-  //         scrollDirection: Axis.horizontal,
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-// category 이름과 id 전달 받고 api를 호출함
+import '../widgets/todo_create_widget.dart';
+
 class WriteTodoScreen extends StatelessWidget {
   static const routeName = '/write-todo';
 
@@ -11,8 +12,10 @@ class WriteTodoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Write')),
-      body: Text('Write Todo'),
+      appBar: AppBar(),
+      body: Center(
+        child: TodoCreateWidget(),
+      ),
     );
   }
 }
