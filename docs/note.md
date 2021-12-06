@@ -25,6 +25,12 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 
 [form](https://docs.flutter.dev/cookbook/forms/validation)
 
+## 21-12-06
+
+[flutter - firebase](https://firebase.flutter.dev/)
+[crud](https://medium.com/flutter-community/flutter-crud-operations-using-firebase-cloud-firestore-a7ef38bbf027)
+
+
 - 할 일
   [] spec
     [] 투두리스트 작성 가능
