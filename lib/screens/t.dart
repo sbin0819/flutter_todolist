@@ -13,25 +13,11 @@ class SubScreen extends StatefulWidget {
 
 class _SubScreenState extends State<SubScreen> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  CollectionReference<Map<String, dynamic>> todolist =
-      FirebaseFirestore.instance.collection('api/user1/todos');
-
-  CollectionReference _collectionRef =
-      FirebaseFirestore.instance.collection('api/user1/todos');
-
-  Future<void> getData() async {
-    // Get docs from collection reference
-    QuerySnapshot querySnapshot = await _collectionRef.get();
-
-    // Get data from docs and convert map to List
-    final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
-
-    print(allData);
-  }
+  DocumentReference<Map<String, dynamic>> todolist =
+      FirebaseFirestore.instance.collection('api/user1/todos').doc('todo1');
 
   @override
   Widget build(BuildContext context) {
-    getData();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -39,7 +25,7 @@ class _SubScreenState extends State<SubScreen> {
         ),
       ),
       body: FutureBuilder<DocumentSnapshot>(
-        future: todolist.doc('todo1').get(),
+        future: todolist.get(),
         builder:
             (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasError) {
