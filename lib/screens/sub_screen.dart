@@ -13,8 +13,11 @@ class SubScreen extends StatefulWidget {
 
 class _SubScreenState extends State<SubScreen> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  CollectionReference todolist =
-      FirebaseFirestore.instance.collection('todolist');
+  CollectionReference<Map<String, dynamic>> todolist = FirebaseFirestore
+      .instance
+      .collection('api')
+      .doc('user1')
+      .collection('todos');
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,7 @@ class _SubScreenState extends State<SubScreen> {
         ),
       ),
       body: FutureBuilder<DocumentSnapshot>(
-        future: todolist.doc('123').get(),
+        future: todolist.doc('todo1').get(),
         builder:
             (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
           if (snapshot.hasError) {
@@ -39,11 +42,13 @@ class _SubScreenState extends State<SubScreen> {
           if (snapshot.connectionState == ConnectionState.done) {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
+            print('d');
+            print(data);
             return Center(
-              child: Text(
-                "Todo: ${data['content']}",
-              ),
-            );
+                // child: Text(
+                //   // "Todo: ${data['content']}",
+                // ),
+                );
           }
 
           return Text("loading");

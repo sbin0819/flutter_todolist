@@ -27,9 +27,15 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 
 ## 21-12-06
 
+파이어베이스 기본 셋업을 했다.
+
 [flutter - firebase](https://firebase.flutter.dev/)
 [crud](https://medium.com/flutter-community/flutter-crud-operations-using-firebase-cloud-firestore-a7ef38bbf027)
 
+
+## 21-12-07
+
+[flutter tip](https://dev.to/chektek/11-beginner-tips-for-google-s-flutter-ood)
 
 - 할 일
   [] spec

@@ -28,6 +28,7 @@ class _MyAppState extends State<MyApp> {
       title: 'TODOLIST',
       theme: getThemeData(),
       initialRoute: HomeScreen.routeName,
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case HomeScreen.routeName:
