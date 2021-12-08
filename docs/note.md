@@ -35,6 +35,7 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 
 ## 21-12-07
 
+cloud database 읽기 스펙 확인
 [flutter tip](https://dev.to/chektek/11-beginner-tips-for-google-s-flutter-ood)
 
 
