@@ -4,15 +4,16 @@ CollectionReference getCollectionRef(String path) {
   return FirebaseFirestore.instance.collection(path);
 }
 
-Future<void> getData(path, callback) async {
+// ? validation 필요
+Future<void> getData(path, setter) async {
   QuerySnapshot querySnapshot = await getCollectionRef(path).get();
   final response = querySnapshot.docs.map((doc) => doc.data()).toList();
-  callback(response);
+  setter(response);
 }
 
-Future<void> getDataWithFilter(path, fillter, callback) async {
+Future<void> getDataWithFilter(path, fillter, setter) async {
   QuerySnapshot querySnapshot = await getCollectionRef(path).get();
   final response = querySnapshot.docs.map((doc) => doc.data()).toList();
-  final filteredResponse = fillter;
-  callback(response);
+  final filteredResponse = fillter(response);
+  setter(filteredResponse);
 }
