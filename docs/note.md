@@ -37,6 +37,13 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 
 [flutter tip](https://dev.to/chektek/11-beginner-tips-for-google-s-flutter-ood)
 
+
+## 21-12-12
+- write_todo_screen
+- firebase 연결 카테고리
+
+[async data 할당하기](https://www.codegrepper.com/code-examples/dart/how+to+put+value+from+async+function+as+parameter+flutter)
+
 - 할 일
   [] spec
     [] 투두리스트 작성 가능
@@ -46,7 +53,7 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
   [] screen
     [x] route 등록
     [] 페이지 구성
-  [] 스타일
+  [] 스타일w
     [] theme 활용
   [] 데이터
     [] todo model
