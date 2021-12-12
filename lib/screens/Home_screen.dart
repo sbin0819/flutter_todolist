@@ -40,9 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(FutureScreen.routeName);
-                  },
+                  onPressed: () {},
                   icon: const Icon(
                     Icons.search,
                   ),

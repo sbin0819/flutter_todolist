@@ -3,8 +3,6 @@ import './screens/home_screen.dart';
 import './screens/category_screen.dart';
 import './screens/write_todo_screen.dart';
 
-import './screens/future_screen.dart';
-
 import './helpers/theme.dart';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -47,10 +45,6 @@ class _MyAppState extends State<MyApp> {
           case WriteTodoScreen.routeName:
             return MaterialPageRoute(
               builder: (context) => WriteTodoScreen(),
-            );
-          case FutureScreen.routeName:
-            return MaterialPageRoute(
-              builder: (context) => FutureScreen(),
             );
         }
       },
