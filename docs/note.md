@@ -42,6 +42,17 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 - write_todo_screen
 - firebase 연결 카테고리
 
+`firebase 퓨처연결 초기 형태`
+```dart
+ final CollectionReference _collectionRef =
+      FirebaseFirestore.instance.collection('api/user1/todos');
+  Future<void> getData() async {
+    QuerySnapshot querySnapshot = await _collectionRef.get();
+    final response = querySnapshot.docs.map((doc) => doc.data()).toList();
+    setState(() => _todolist = response);
+  }
+```
+
 [async data 할당하기](https://www.codegrepper.com/code-examples/dart/how+to+put+value+from+async+function+as+parameter+flutter)
 [class 생성](https://app.quicktype.io/)
 

@@ -10,6 +10,7 @@ class TodoListWidget extends StatefulWidget {
 }
 
 class _TodoListWidgetState extends State<TodoListWidget> {
+  final String category_key = 'Study';
   late List<dynamic> _todolist;
 
   final CollectionReference _collectionRef =
@@ -20,7 +21,7 @@ class _TodoListWidgetState extends State<TodoListWidget> {
     final response = querySnapshot.docs.map((doc) => doc.data()).toList();
     // ? filter 방식이 이게 맞을지 잘 모르겠다.
     final filtered = response
-        .where((dynamic element) => element['category'] == 'Study')
+        .where((dynamic element) => element['category'] == category_key)
         .toList();
     setState(() => _todolist = filtered);
   }

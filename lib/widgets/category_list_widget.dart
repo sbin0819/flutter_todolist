@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './category_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../helpers/cloud_firestore_helper.dart';
 
 class CategoryListWidget extends StatefulWidget {
   CategoryListWidget({Key? key}) : super(key: key);
@@ -12,19 +13,10 @@ class CategoryListWidget extends StatefulWidget {
 class _CategoryListWidgetState extends State<CategoryListWidget> {
   late List<dynamic> _categories;
 
-  final CollectionReference _collectionRef =
-      FirebaseFirestore.instance.collection('api/user1/categories');
-
-  Future<void> getData() async {
-    QuerySnapshot querySnapshot = await _collectionRef.get();
-    final response = querySnapshot.docs.map((doc) => doc.data()).toList();
-    setState(() => _categories = response);
-  }
-
   @override
   void initState() {
     super.initState();
-    getData();
+    getData('api/user1/categories', (res) => setState(() => _categories = res));
   }
 
   @override
