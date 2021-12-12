@@ -20,10 +20,7 @@ class _SubScreenState extends State<SubScreen> {
       FirebaseFirestore.instance.collection('api/user1/todos');
 
   Future<void> getData() async {
-    // Get docs from collection reference
     QuerySnapshot querySnapshot = await _collectionRef.get();
-
-    // Get data from docs and convert map to List
     final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
 
     print(allData);

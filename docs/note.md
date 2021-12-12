@@ -43,6 +43,7 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 - firebase 연결 카테고리
 
 [async data 할당하기](https://www.codegrepper.com/code-examples/dart/how+to+put+value+from+async+function+as+parameter+flutter)
+[class 생성](https://app.quicktype.io/)
 
 - 할 일
   [] spec

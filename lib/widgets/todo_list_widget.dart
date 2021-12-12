@@ -18,7 +18,11 @@ class _TodoListWidgetState extends State<TodoListWidget> {
   Future<void> getData() async {
     QuerySnapshot querySnapshot = await _collectionRef.get();
     final response = querySnapshot.docs.map((doc) => doc.data()).toList();
-    setState(() => _todolist = response);
+    // ? filter 방식이 이게 맞을지 잘 모르겠다.
+    final filtered = response
+        .where((dynamic element) => element['category'] == 'Study')
+        .toList();
+    setState(() => _todolist = filtered);
   }
 
   @override
