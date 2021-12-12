@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../screens/home_screen.dart';
 
 class TodoCreateWidget extends StatefulWidget {
   const TodoCreateWidget({Key? key}) : super(key: key);
@@ -105,7 +106,9 @@ class _TodoCreateWidgetState extends State<TodoCreateWidget> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       addTodo(_txtController.text);
-                      Navigator.of(context).pop();
+                      Navigator.of(context).pushNamed(HomeScreen.routeName);
+                      // Navigator.of(context).pop(false);
+                      // Navigator.pop(context, true);
                       // showDialog(
                       //   context: context,
                       //   builder: (context) {
