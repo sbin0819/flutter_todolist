@@ -4,6 +4,13 @@ CollectionReference getCollectionRef(String path) {
   return FirebaseFirestore.instance.collection(path);
 }
 
+CollectionReference getCollection(userId, rest) {
+  String path = 'api/$userId/$rest';
+  final CollectionReference collection =
+      FirebaseFirestore.instance.collection(path);
+  return collection;
+}
+
 // ? validation 필요
 Future<void> getData(path, setter) async {
   QuerySnapshot querySnapshot = await getCollectionRef(path).get();
