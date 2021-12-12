@@ -1,18 +1,26 @@
-// ! DART class 작성법을 확인해 봐야함.
-class Todolist {
-  final String id;
-  final String title;
-  final String content;
-  final bool isCompleted; // 없으면 false
-  final String category; // 없으면 all
-  // final Date createdAt;
-  // final Date updatedAt;
+import 'dart:convert';
 
-  Todolist({
-    required this.id,
-    required this.title,
+Todo welcomeFromJson(String str) => Todo.fromJson(json.decode(str));
+
+String welcomeToJson(Todo data) => json.encode(data.toJson());
+
+class Todo {
+  Todo({
     required this.content,
-    required this.isCompleted,
     required this.category,
   });
+
+  Todo.fromJson(Map<String, Object?> json)
+      : this(
+          content: json['content']! as String,
+          category: json['category']! as String,
+        );
+
+  final String content;
+  final String category;
+
+  Map<String, Object?> toJson() => {
+        "content": content,
+        "category": category,
+      };
 }

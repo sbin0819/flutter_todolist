@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './screens/sub_screen.dart';
 import './screens/home_screen.dart';
 import './screens/category_screen.dart';
 import './screens/write_todo_screen.dart';
@@ -35,13 +34,8 @@ class _MyAppState extends State<MyApp> {
             return MaterialPageRoute(
               builder: (context) => HomeScreen(title: 'hi'),
             );
-          case SubScreen.routeName:
-            return MaterialPageRoute(
-              builder: (context) => SubScreen(),
-            );
           case CategoryScreen.routeName:
             final _cate_arg = settings.arguments as Map<String, dynamic>;
-
             return MaterialPageRoute(
               builder: (context) => CategoryScreen(
                 id: _cate_arg['id'],

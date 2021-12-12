@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class TodoCreateWidget extends StatefulWidget {
   const TodoCreateWidget({Key? key}) : super(key: key);
@@ -11,13 +12,29 @@ class _TodoCreateWidgetState extends State<TodoCreateWidget> {
   final _formKey = GlobalKey<FormState>();
   final _txtController = TextEditingController();
 
-  @override
-  void initState() {
-    super.initState();
+  CollectionReference todos =
+      FirebaseFirestore.instance.collection('api/user1/todos');
 
-    // Start listening to changes.
-    _txtController.addListener(_printLatestValue);
+  Future<void> addTodo(content) {
+    return todos
+        .add({
+          'content': content,
+          'category': 'Study',
+        })
+        .then((value) => print("Todo Added"))
+        .catchError((error) => print("Failed to add todo: $error"));
   }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   // Start listening to changes.
+  //   _txtController.addListener(_printLatestValue);
+  // }
+
+  // void _printLatestValue() {
+  //   print('Second text field: ${_txtController.text}');
+  // }
 
   @override
   void dispose() {
@@ -25,10 +42,6 @@ class _TodoCreateWidgetState extends State<TodoCreateWidget> {
     // widget tree.
     _txtController.dispose();
     super.dispose();
-  }
-
-  void _printLatestValue() {
-    print('Second text field: ${_txtController.text}');
   }
 
   @override
@@ -91,6 +104,7 @@ class _TodoCreateWidgetState extends State<TodoCreateWidget> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
+                      addTodo(_txtController.text);
                       Navigator.of(context).pop();
                       // showDialog(
                       //   context: context,

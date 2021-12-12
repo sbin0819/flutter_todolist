@@ -3,8 +3,6 @@ import '../widgets/category_list_widget.dart';
 import '../widgets/todo_list_widget.dart';
 import './write_todo_screen.dart';
 
-import '/screens/sub_screen.dart';
-
 /**
   1. Category 데어터
   2. Today Todo 데이터
@@ -49,9 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.black45,
                 ),
                 IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(SubScreen.routeName);
-                  },
+                  onPressed: () {},
                   icon: const Icon(
                     Icons.notifications_none,
                   ),
