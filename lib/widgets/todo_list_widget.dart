@@ -19,10 +19,10 @@ class _TodoListWidgetState extends State<TodoListWidget> {
     QuerySnapshot querySnapshot = await _collectionRef.get();
     final response = querySnapshot.docs.map((doc) => doc.data()).toList();
     // ? filter 방식이 이게 맞을지 잘 모르겠다.
-    final filtered = response
-        .where((dynamic element) => element['category'] == category_key)
-        .toList();
-    setState(() => _todolist = filtered);
+    // final filtered = response
+    //     .where((dynamic element) => element['category'] == category_key)
+    //     .toList();
+    setState(() => _todolist = response);
   }
 
   @override
@@ -46,23 +46,21 @@ class _TodoListWidgetState extends State<TodoListWidget> {
         ),
         const SizedBox(height: 10),
         // ? 내부에서 스크롤이 돌게 하기 위해서 SizedBox 에서 크기를 고정해줌
-        _todolist.length < 0
-            ? Text('작성 된 투두리스트가 없습니다.')
+        _todolist.length < 1
+            ? Text('작성된 투두리스트가 없습니다.')
             : SizedBox(
                 height: 400.0,
                 child: ListView.builder(
                   itemCount: _todolist.length,
                   itemBuilder: (BuildContext context, int idx) {
-                    return TodoWidget(todo: _todolist[idx]['content']);
+                    return TodoWidget(
+                      content: _todolist[idx]['content'],
+                      isCompleted: _todolist[idx]['isCompleted'],
+                    );
                   },
                 ),
               ),
       ],
     );
   }
-}
-
-Widget getTodoWidget(List<String> strings) {
-  return Column(
-      children: strings.map((todo) => TodoWidget(todo: todo)).toList());
 }

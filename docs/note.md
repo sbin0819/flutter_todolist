@@ -42,6 +42,7 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
 - write_todo_screen
 - firebase 연결 카테고리
 
+
 `firebase 퓨처연결 초기 형태`
 ```dart
  final CollectionReference _collectionRef =
@@ -52,6 +53,12 @@ Column/Row 내부에서 ListView가 적용이 잘 되지 않는다.
     setState(() => _todolist = response);
   }
 ```
+
+문제 
+- collection path를 할당 된 변수로 넣었을 떄 문제가 발생한다. 임시 조치를 했는데 플러터 내부 동작원리랑 관련된 문제라 학습이 필요할 거 같다.
+- initState 및 플러터의 생명주기 학습
+- model 활용법
+
 
 [async data 할당하기](https://www.codegrepper.com/code-examples/dart/how+to+put+value+from+async+function+as+parameter+flutter)
 [class 생성](https://app.quicktype.io/)

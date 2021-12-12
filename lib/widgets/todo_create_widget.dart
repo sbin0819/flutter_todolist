@@ -21,6 +21,7 @@ class _TodoCreateWidgetState extends State<TodoCreateWidget> {
         .add({
           'content': content,
           'category': 'Study',
+          "isCompleted": false,
         })
         .then((value) => print("Todo Added"))
         .catchError((error) => print("Failed to add todo: $error"));

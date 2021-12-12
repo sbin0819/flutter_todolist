@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class TodoWidget extends StatelessWidget {
-  TodoWidget({Key? key, required this.todo}) : super(key: key);
-  String todo;
+  TodoWidget({Key? key, required this.content, required this.isCompleted})
+      : super(key: key);
+  String content;
+  bool isCompleted;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +21,7 @@ class TodoWidget extends StatelessWidget {
             color: Colors.grey.withOpacity(0.2),
             spreadRadius: 2,
             blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 3),
           ),
         ],
       ),
@@ -28,12 +30,17 @@ class TodoWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(width: 20),
-          Icon(
-            Icons.circle_outlined, // ! todo isCompleted
-            color: Colors.pink[300],
+          IconButton(
+            onPressed: () {
+              print(isCompleted);
+            },
+            icon: Icon(
+              isCompleted ? Icons.circle_outlined : Icons.circle,
+              color: Colors.pink[300],
+            ),
           ),
           SizedBox(width: 15),
-          Text(todo), // ! todo title or content
+          Text(content),
         ],
       ),
     );
