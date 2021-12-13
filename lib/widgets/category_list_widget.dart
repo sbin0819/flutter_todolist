@@ -16,7 +16,10 @@ class _CategoryListWidgetState extends State<CategoryListWidget> {
   @override
   void initState() {
     super.initState();
-    getData('api/user1/categories', (res) => setState(() => _categories = res));
+    getData('api/user1/categories', (res) => setState(() => _categories = res))
+        .whenComplete(() {
+      setState(() {});
+    });
   }
 
   @override
