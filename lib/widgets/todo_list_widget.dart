@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import './todo_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../helpers/cloud_firestore_helper.dart';
+import '../models/todolist.dart';
 
 class TodoListWidget extends StatefulWidget {
   const TodoListWidget({Key? key}) : super(key: key);
@@ -12,16 +15,20 @@ class TodoListWidget extends StatefulWidget {
 
 class _TodoListWidgetState extends State<TodoListWidget> {
   final String category_key = 'Study';
-  late List<dynamic> _todolist;
+  late List _todolist;
   final CollectionReference _collectionRef = getCollection('user1', 'todos');
 
   Future<void> getData() async {
     QuerySnapshot querySnapshot = await _collectionRef.get();
-    final response = querySnapshot.docs.map((doc) => doc.data()).toList();
-    // ? filter 방식이 이게 맞을지 잘 모르겠다.
+    List response = querySnapshot.docs;
+
+    response.map((doc) {
+      print(todoFromJson(doc.data()));
+    }).toList();
     // final filtered = response
     //     .where((dynamic element) => element['category'] == category_key)
     //     .toList();
+
     setState(() => _todolist = response);
   }
 
